@@ -1,6 +1,11 @@
 name: Hawkeye Scan # <Name your workflow>
 # Controls when the action will run. Triggers the workflow on push or pull request on any branch
-on: [push, pull_request]
+on: 
+  workflow_run:
+    workflows: [Lint and Test]
+    branches: [main]
+    types: 
+      - completed
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "scan"
